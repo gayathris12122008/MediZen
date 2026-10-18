@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071b3b">
+  <meta name="description" content="MediZen - an accessible healthcare companion">
+  <title>MediZen | Your Health Companion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="MediZen home">
+      <span class="brand-icon" aria-hidden="true">✚</span>
+      <span>MediZen</span>
+    </a>
+
+    <div class="live-info">
+      <span id="current-date">Loading date...</span>
+      <span id="current-time" aria-live="off">Loading time...</span>
+    </div>
+  </header>
+
+  <!-- Accessibility controls stay outside the feature cards -->
+  <nav class="accessibility-bar" aria-label="Accessibility controls">
+    <button id="language-button" type="button">
+      🌐 English / தமிழ்
+    </button>
+
+    <button id="text-size-button" type="button">
+      A+ Text Size
+    </button>
+
+    <button id="read-aloud-button" type="button">
+      🔊 Read Aloud
+    </button>
+
+    <button id="stop-reading-button" type="button" hidden>
+      ⏹ Stop Reading
+    </button>
+  </nav>
+
+  <main class="container">
+    <section class="welcome">
+      <p class="eyebrow" data-i18n="welcomeLabel">YOUR PERSONAL HEALTH COMPANION</p>
+      <h1 data-i18n="welcomeTitle">Your health, made simpler.</h1>
+      <p data-i18n="welcomeDescription">
+        Everything you need, in one easy place.
+      </p>
+    </section>
+
+    <section class="quote-card" aria-labelledby="quote-heading">
+      <span class="quote-symbol" aria-hidden="true">“</span>
+      <div>
+        <h2 id="quote-heading" data-i18n="dailyQuote">A thought for today</h2>
+        <p id="daily-quote"></p>
+      </div>
+    </section>
+
+<!-- SOS BUTTON -->
+<section class="sos-section">
+  <button id="sosButton" class="sos-button" type="button">
+    <span class="sos-icon" aria-hidden="true">☎</span>
+    <span>SOS — GET HELP</span>
+  </button>
+  <p id="sosStatus" role="status" aria-live="polite">
+    Calls your saved caregiver.
+  </p>
+</section>
+
+<!-- SOS CONFIRMATION -->
+<section id="sosConfirm" class="sos-dialog" hidden>
+  <h2>Call your caregiver?</h2>
+  <p id="caregiverPreview">Your saved caregiver will be contacted.</p>
+
+  <button id="confirmSOS" class="confirm-button" type="button">
+    Confirm Call
+  </button>
+
+  <button id="cancelSOS" class="cancel-button" type="button">
+    Cancel
+  </button>
+</section>
+
+<!-- CAREGIVER SETTINGS -->
+<section class="caregiver-settings">
+  <h2>Caregiver Settings</h2>
+
+  <label for="caregiverName">Caregiver name</label>
+  <input
+    id="caregiverName"
+    type="text"
+    placeholder="Enter caregiver name"
+    autocomplete="name"
+  />
+
+  <label for="caregiverPhone">Caregiver phone number</label>
+  <input
+    id="caregiverPhone"
+    type="tel"
+    placeholder="Enter phone number"
+    autocomplete="tel"
+  />
+
+  <button id="saveCaregiver" type="button">
+    Save Caregiver
+  </button>
+
+  <p id="caregiverStatus" role="status" aria-live="polite"></p>
+</section>
+
+
+    <section class="features-section" aria-labelledby="features-heading">
+      <h2 id="features-heading" data-i18n="featuresHeading">
+        What do you need today?
+      </h2>
+
+      <p class="section-description" data-i18n="featuresDescription">
+        Select a service to continue.
+      </p>
+
+      <div class="feature-grid">
+        <a class="feature-card medicines" data-feature="medicines"
+           href="https://your-friends-site.example/medicines">
+          <span class="feature-icon" aria-hidden="true">💊</span>
+          <span class="feature-title" data-i18n="medicinesTitle">My Medicines</span>
+          <span class="feature-description" data-i18n="medicinesDescription">
+            Medicine information and reminders
+          </span>
+          <span class="feature-action" data-i18n="openFeature">Open service →</span>
+        </a>
+
+        <a class="feature-card appointments" data-feature="appointments"
+           href="https://your-friends-site.example/appointments">
+          <span class="feature-icon" aria-hidden="true">📅</span>
+          <span class="feature-title" data-i18n="appointmentsTitle">Appointments</span>
+          <span class="feature-description" data-i18n="appointmentsDescription">
+            Your visits and schedules
+          </span>
+          <span class="feature-action" data-i18n="openFeature">Open service →</span>
+        </a>
+
+        <a class="feature-card caretaker" data-feature="caretaker"
+           href="https://your-friends-site.example/caretaker">
+          <span class="feature-icon" aria-hidden="true">🤝</span>
+          <span class="feature-title" data-i18n="caretakerTitle">Caretaker</span>
+          <span class="feature-description" data-i18n="caretakerDescription">
+            Stay connected with your caregiver
+          </span>
+          <span class="feature-action" data-i18n="openFeature">Open service →</span>
+        </a>
+
+        <a class="feature-card hospitals" data-feature="hospitals"
+           href="https://your-friends-site.example/hospitals">
+          <span class="feature-icon" aria-hidden="true">🏥</span>
+          <span class="feature-title" data-i18n="hospitalsTitle">Nearby Hospitals</span>
+          <span class="feature-description" data-i18n="hospitalsDescription">
+            Find hospital information
+          </span>
+          <span class="feature-action" data-i18n="openFeature">Open service →</span>
+        </a>
+
+        <a class="feature-card health-tips" data-feature="tips"
+           href="https://your-friends-site.example/health-tips">
+          <span class="feature-icon" aria-hidden="true">🌿</span>
+          <span class="feature-title" data-i18n="tipsTitle">Health Tips</span>
+          <span class="feature-description" data-i18n="tipsDescription">
+            Everyday health and wellness
+          </span>
+          <span class="feature-action" data-i18n="openFeature">Open service →</span>
+        </a>
+
+        <a class="feature-card settings" data-feature="settings"
+           href="https://your-friends-site.example/settings">
+          <span class="feature-icon" aria-hidden="true">⚙️</span>
+          <span class="feature-title" data-i18n="settingsTitle">Settings</span>
+          <span class="feature-description" data-i18n="settingsDescription">
+            Manage your preferences
+          </span>
+          <span class="feature-action" data-i18n="openFeature">Open service →</span>
+        </a>
+      </div>
+
+      <p class="placeholder-note" data-i18n="placeholderNote">
+        Feature links are temporary and will be connected to your team's websites.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 MediZen</p>
+    <p data-i18n="footerText">Care made clearer. One step at a time.</p>
+  </footer>
+
+  <dialog id="sos-dialog" aria-labelledby="sos-dialog-title">
+    <div class="dialog-content">
+      <h2 id="sos-dialog-title" data-i18n="confirmTitle">
+        Confirm emergency call
+      </h2>
+
+      <p data-i18n="confirmDescription">
+        Your phone's dialer will open for India's emergency number 112.
+        You must place the call yourself.
+      </p>
+
+      <div class="dialog-actions">
+        <button id="cancel-sos" class="secondary-button" type="button"
+                data-i18n="cancel">Cancel</button>
+        <a id="confirm-sos" class="confirm-button" href="tel:112"
+           data-i18n="call112">Open dialer — 112</a>
+      </div>
+    </div>
+  </dialog>
+
+  <div id="status-message" class="visually-hidden" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

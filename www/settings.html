@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071b3b">
+  <title>MediZen | Settings</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">✚ MediZen</a>
+    <a class="back-link" href="index.html">← Home</a>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="hero-icon">⚙️</span>
+      <h1>Settings & Management</h1>
+      <p>Manage your health information and customize MediZen.</p>
+    </section>
+
+    <nav class="accessibility-bar" aria-label="Accessibility controls">
+      <button type="button" id="textSizeButton">A+ Text Size</button>
+      <button type="button" id="readButton">🔊 Read Aloud</button>
+      <button type="button" id="stopButton" hidden>⏹ Stop</button>
+    </nav>
+
+    <section class="settings-section">
+      <h2>Health & Care Settings</h2>
+      <p class="section-description">
+        Select a section to edit its details or open its dedicated page.
+      </p>
+
+      <div class="settings-grid">
+        <article class="settings-card">
+          <div class="card-icon">🤝</div>
+          <h3>Caregiver & Caretaker</h3>
+          <p>Edit the adult's and caregiver's contact information.</p>
+          <a class="open-link" href="caregiver.html">Open caregiver page →</a>
+          <button type="button" class="secondary-button"
+            data-edit="caregiver">Edit details here</button>
+        </article>
+
+        <article class="settings-card">
+          <div class="card-icon">💊</div>
+          <h3>Medicine Details</h3>
+          <p>Manage medicine names, dosage and schedule information.</p>
+          <a class="open-link" href="med.html">Open medicines page →</a>
+          <button type="button" class="secondary-button"
+            data-edit="medicine">Edit details here</button>
+        </article>
+
+        <article class="settings-card">
+          <div class="card-icon">📅</div>
+          <h3>Appointments</h3>
+          <p>Save appointment dates, doctors and visit details.</p>
+          <a class="open-link" href="appointments.html">Open appointments page →</a>
+          <button type="button" class="secondary-button"
+            data-edit="appointment">Edit details here</button>
+        </article>
+
+        <article class="settings-card">
+          <div class="card-icon">🏥</div>
+          <h3>Hospital Details</h3>
+          <p>Save hospital names, addresses and contact numbers.</p>
+          <a class="open-link" href="hospitals.html">Open hospital page →</a>
+          <button type="button" class="secondary-button"
+            data-edit="hospital">Edit details here</button>
+        </article>
+
+        <article class="settings-card">
+          <div class="card-icon">🌿</div>
+          <h3>Health Tips</h3>
+          <p>Manage health tips displayed in your app.</p>
+          <a class="open-link" href="health-tips.html">Open health tips page →</a>
+          <button type="button" class="secondary-button"
+            data-edit="tips">Edit details here</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="editor-section" id="editorSection" hidden>
+      <div class="section-heading">
+        <div>
+          <h2 id="editorTitle">Edit Details</h2>
+          <p class="section-description">Update the fields and save your changes.</p>
+        </div>
+        <button type="button" id="closeEditor" class="close-button"
+          aria-label="Close editor">✕</button>
+      </div>
+
+      <form id="detailsForm">
+        <div id="editorFields" class="form-grid"></div>
+        <div class="form-actions">
+          <button class="primary-button" type="submit">Save Details</button>
+          <button class="secondary-button" type="button"
+            id="cancelEditor">Cancel</button>
+        </div>
+        <p id="saveStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="creator-section">
+      <div class="creator-header">
+        <span class="creator-icon">💻</span>
+        <div>
+          <p class="eyebrow">DEVELOPMENT TEAM</p>
+          <h2>App Creator Panel</h2>
+        </div>
+      </div>
+
+      <form id="creatorForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="teamName">Team MediZen</label>
+            
+          </div>
+
+          <div class="field">
+            <label for="projectName">Medizen</label>
+            <input id="projectName" name="projectName"
+              value="MediZen" required>
+          </div>
+
+          <div class="field">
+            <label for="teamLeader">Team Leader</label>
+           <p>Gayathri S</p>
+          </div>
+
+          <div class="field">
+            <label for="institution">College / Institution</label>
+            <p>RMD Engineering College</p>
+          </div>
+
+          <div class="field">
+            <label for="eventName">Hackathon / Event</label>
+            <p>Sathyabama IST Dexathon '26</p>
+          </div>
+
+          <div class="field">
+            <label for="creatorContact">Team contact </label>
+            <p>+91 9xxxx 7xxxx</p>
+            
+          </div>
+
+          <div class="field full-width">
+            <label for="teamMembers">Team members and roles</label>
+            <ol><li>Dhanashree D</li>
+            <li>Likitha B</li>
+        <li>Dharshini Chowdary R</li></ol></p>
+          </div>
+
+
+    <p class="privacy-note">
+      Your saved settings are stored locally in this browser or app on this
+      device. They are not automatically synced to other devices.
+    </p>
+  </main>
+
+  <footer>
+    <p>© 2026 MediZen</p>
+    <p>Care made clearer. One step at a time.</p>
+  </footer>
+
+  <script src="settings.js"></script>
+</body>
+</html>
