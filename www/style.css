@@ -544,3 +544,28 @@ button:disabled {
     animation: none !important;
   }
 }
+.health-tips-home-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #e8f3ff;
+  color: #02124b;
+  text-decoration: none;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.health-tips-home-link span:first-child {
+  font-size: 28px;
+}
+
+.health-tips-home-link strong {
+  font-size: 18px;
+}
+
+.health-tips-home-link small {
+  color: #4b5563;
+}
