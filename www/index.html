@@ -1,54 +1,73 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#071b3b">
+  <meta name="description" content="MediZen accessible health companion">
   <title>MediZen | Your Health Companion</title>
-
   <link rel="stylesheet" href="style.css">
+  <script src="translations.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body>
   <header class="topbar">
-    <a class="brand" href="index.html">
-      <span class="brand-icon">✚</span>
+    <a class="brand" href="index.html" aria-label="MediZen home">
+      <span class="brand-icon" aria-hidden="true">✚</span>
       <span>MediZen</span>
     </a>
 
     <div class="live-info">
-      <span id="current-date">Loading date...</span>
-      <span id="current-time">Loading time...</span>
+      <span id="current-date"></span>
+      <span id="current-time"></span>
     </div>
   </header>
 
   <nav class="accessibility-bar" aria-label="Accessibility controls">
-    <button id="languageButton" type="button">🌐 English / தமிழ்</button>
-    <button id="textSizeButton" type="button">A+ Text Size</button>
-    <button id="readAloudButton" type="button">🔊 Read Aloud</button>
-    <button id="stopReadingButton" type="button" hidden>⏹ Stop Reading</button>
+    <button id="languageButton" type="button">
+      🌐 English / தமிழ்
+    </button>
+
+    <button id="textSizeButton" type="button" aria-pressed="false">
+      A+ Text Size
+    </button>
+
+    <button id="readAloudButton" type="button">
+      🔊 Read Aloud
+    </button>
+
+    <button id="stopReadingButton" type="button" hidden>
+      ⏹ Stop Reading
+    </button>
   </nav>
 
-  <main class="container">
+  <main class="container" id="mainContent">
     <section class="sos-section">
       <button id="sosButton" class="sos-button" type="button">
-        <span class="sos-icon">☎</span>
-        <span>SOS — GET HELP</span>
+        <span class="sos-icon" aria-hidden="true">☎</span>
+        <span data-i18n="sosTitle">SOS — GET HELP</span>
       </button>
-      <p id="sosStatus" role="status"></p>
+      <p id="sosStatus" role="status" aria-live="polite"></p>
+      <div id="sosContacts" class="sos-contacts" hidden></div>
     </section>
 
     <section class="welcome">
-      <p class="eyebrow" data-i18n="welcomeLabel">YOUR PERSONAL HEALTH COMPANION</p>
+      <p class="eyebrow" data-i18n="welcomeLabel">
+        YOUR PERSONAL HEALTH COMPANION
+      </p>
       <h1 data-i18n="welcomeTitle">Your health, made simpler.</h1>
-      <p data-i18n="welcomeDescription">Everything you need, in one easy place.</p>
+      <p data-i18n="welcomeDescription">
+        Everything you need, in one easy place.
+      </p>
     </section>
 
     <section class="quote-card">
-      <span class="quote-symbol">“</span>
+      <span class="quote-symbol" aria-hidden="true">“</span>
       <div>
         <h2 data-i18n="dailyQuote">A thought for today</h2>
-        <p id="dailyQuoteText"></p>
+        <p id="dailyQuoteText" aria-live="polite"></p>
       </div>
     </section>
 
@@ -59,8 +78,8 @@
       </p>
 
       <div class="feature-grid">
-        <a class="feature-card medicines" href="med.html">
-          <span class="feature-icon">💊</span>
+        <a class="feature-card" href="med.html">
+          <span class="feature-icon" aria-hidden="true">💊</span>
           <span class="feature-title" data-i18n="medicinesTitle">My Medicines</span>
           <span class="feature-description" data-i18n="medicinesDescription">
             Medicine reminders and schedules
@@ -68,9 +87,8 @@
           <span class="feature-action" data-i18n="openFeature">Open service →</span>
         </a>
 
-        <a class="feature-card appointments" href="#"
-           data-coming-soon="Appointments">
-          <span class="feature-icon">📅</span>
+        <a class="feature-card" href="app.html">
+          <span class="feature-icon" aria-hidden="true">📅</span>
           <span class="feature-title" data-i18n="appointmentsTitle">Appointments</span>
           <span class="feature-description" data-i18n="appointmentsDescription">
             Your visits and schedules
@@ -78,8 +96,8 @@
           <span class="feature-action" data-i18n="openFeature">Open service →</span>
         </a>
 
-        <a class="feature-card caretaker" href="caregiver.html">
-          <span class="feature-icon">🤝</span>
+        <a class="feature-card" href="caregiver.html">
+          <span class="feature-icon" aria-hidden="true">🤝</span>
           <span class="feature-title" data-i18n="caretakerTitle">Caretaker</span>
           <span class="feature-description" data-i18n="caretakerDescription">
             Save a trusted emergency contact
@@ -87,9 +105,8 @@
           <span class="feature-action" data-i18n="openFeature">Open service →</span>
         </a>
 
-        <a class="feature-card hospitals" href="#"
-           data-coming-soon="Nearby Hospitals">
-          <span class="feature-icon">🏥</span>
+        <a class="feature-card" href="hospital.html">
+          <span class="feature-icon" aria-hidden="true">🏥</span>
           <span class="feature-title" data-i18n="hospitalsTitle">Nearby Hospitals</span>
           <span class="feature-description" data-i18n="hospitalsDescription">
             Find hospital information
@@ -97,33 +114,32 @@
           <span class="feature-action" data-i18n="openFeature">Open service →</span>
         </a>
 
-        <a class="feature-card health-tips" href="health-tips.html">
-          <span class="feature-icon">🌿</span>
+        <a class="feature-card" href="health-tips.html">
+          <span class="feature-icon" aria-hidden="true">🌿</span>
           <span class="feature-title" data-i18n="tipsTitle">Health Tips</span>
           <span class="feature-description" data-i18n="tipsDescription">
             Everyday health and wellness
           </span>
           <span class="feature-action" data-i18n="openFeature">Open service →</span>
         </a>
-<a class="feature-card settings" href="settings.html">
-  <span class="feature-icon">⚙️</span>
-  <span class="feature-title">Settings</span>
-  <span class="feature-description">
-    Manage profiles, medicines, appointments and app details
-  </span>
-  <span class="feature-action">Open settings →</span>
-</a>
+
+        <a class="feature-card" href="settings.html">
+          <span class="feature-icon" aria-hidden="true">⚙️</span>
+          <span class="feature-title" data-i18n="settingsTitle">Settings</span>
+          <span class="feature-description" data-i18n="settingsDescription">
+            Manage your personal details and app preferences
+          </span>
+          <span class="feature-action" data-i18n="openSettings">Open settings →</span>
+        </a>
       </div>
     </section>
   </main>
 
   <footer>
     <p>© 2026 MediZen</p>
-    <p>Care made clearer. One step at a time.</p>
+    <p data-i18n="footerText">Care made clearer. One step at a time.</p>
   </footer>
 
   <div id="toast" role="status" aria-live="polite"></div>
-
-  <script src="script.js"></script>
 </body>
 </html>

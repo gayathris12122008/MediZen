@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Wellness</title>
+<style>
+  @keyframes breathe {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+      100% { transform: scale(1); }
+  }
+body { font-family: Arial; background: #f0f4f8; padding: 20px; }
+h1 { text-align: center; color: #1e3a8a; }
+.card { background: white; padding: 15px; border-radius: 8px; margin: 5px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+button { padding: 14px 22px; margin: 7px; border: none; background: #1e3a8a; color: white; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600; }
+button:hover { background: #0f2c61; }
+input { padding: 8px; border: 1px solid #ccc; border-radius: 8px; }
+
+.card strong, .card h3 {
+  font-size: 22px !important;
+  font-weight: 900 !important;
+}
+.card p {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  line-height: 1.6;
+}
+li {
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  line-height: 2.0;
+}
+</style>
+</head>
+<body>
+
+<h1>Daily Wellness</h1>
+<div class="card">
+<h3>WELLNESS WHISPER</h3>
+<p id="dailyTip">Loading...</p>
+<div style="text-align:center; margin:20px;">
+ 
+</div>
+</div>
+
+<div class="card" style="display:flex; justify-content:space-around; align-items:center;">
+
+  <!-- LEFT - Your Breathe you wanted to move here -->
+  <div style="text-align:center;">
+    <div style="font-size:50px; animation: breathe 4s infinite;">🌸</div>
+    <p><b id="breatheText">Breathe In... Breathe Out...</b></p>
+  </div>
+
+  <!-- RIGHT - Water stays here -->
+  <div style="text-align:center; border-left:2px solid #eee; padding-left:30px;">
+    <p>💧 <b>Today's Water</b></p>
+    <p id="water">0 / 8 glasses</p>
+    <button onclick="drink()" style="background:#2e7d32; color:white; border:none; padding:8px 16px; border-radius:20px;">+ Add Glass</button>
+  </div>
+
+</div>
+<script>
+let today = new Date().toDateString();
+let savedDate = localStorage.getItem('waterDate');
+let count = 0;
+
+if (savedDate !== today) {
+  count = 0;
+  localStorage.setItem('waterDate', today);
+  localStorage.setItem('waterCount', 0);
+} else {
+  count = parseInt(localStorage.getItem('waterCount')) || 0;
+}
+
+document.getElementById('water').innerText = count + " / 8 glasses";
+
+function drink(){
+  count++;
+  document.getElementById('water').innerText = count + " / 8 glasses";
+  localStorage.setItem('waterCount', count);
+  if(count==8) alert("Amazing! You completed today's goal! 🎉");
+}
+</script>
+
+<div class="card">
+<h3>Select your Health Concern</h3>
+<button onclick="showTip('fever')">Fever</button>
+<button onclick="showTip('cold')">Cold</button>
+<button onclick="showTip('headache')">Headache</button>
+<button onclick="showTip('cough')">Cough</button>
+<button onclick="showTip('sorethroat')">Sore Throat</button>
+<button onclick="showTip('stomachpain')">Stomach Pain</button>
+<button onclick="showTip('acidity')">Acidity</button>
+<button onclick="showTip('diarrhea')">Diarrhea</button>
+<button onclick="showTip('constipation')">Constipation</button>
+<button onclick="showTip('vomiting')">Vomiting</button>
+<button onclick="showTip('backpain')">Back Pain</button>
+<button onclick="showTip('neckpain')">Neck Pain</button>
+<button onclick="showTip('knee_pain')">Knee Pain</button>
+<button onclick="showTip('eyestrain')">Eye Strain</button>
+<button onclick="showTip('insomnia')">Insomnia</button>
+<button onclick="showTip('anxiety')">Anxiety</button>
+<button onclick="showTip('stress')">Stress</button>
+<button onclick="showTip('dehydration')">Dehydration</button>
+<button onclick="showTip('sunburn')">Sunburn</button>
+<button onclick="showTip('acne')">Acne</button>
+<button onclick="showTip('dandruff')">Dandruff</button>
+<button onclick="showTip('hairfall')">Hair Fall</button>
+<button onclick="showTip('period')">Period Pain</button>
+<button onclick="showTip('lowenergy')">Low Energy</button>
+<button onclick="showTip('dizziness')">Dizziness</button>
+<button onclick="showTip('bp')">High BP</button>
+<button onclick="showTip('diabetes')">Diabetes</button>
+<button onclick="showTip('chestpain')">Chest Pain</button>
+<button onclick="showTip('vision')">Vision Problem</button>
+<button onclick="showTip('arthritis')">Arthritis / Joint Pain</button>
+</div>
+
+<div id="tipDisplay"></div>
+
+<script src="healthcare.js"></script><script src="translations.js"></script>
+</body>
+</html>

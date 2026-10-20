@@ -1,0 +1,153 @@
+:root {
+  --navy: #071b3b;
+  --blue: #1f55d5;
+  --light-blue: #eaf2ff;
+  --background: #f3f6fc;
+  --white: #ffffff;
+  --text: #14213d;
+  --muted: #58677f;
+  --border: #c7d6ed;
+  --green: #137a51;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+.caregiver-app {
+  width: min(100%, 650px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 66px;
+  padding: 14px 18px;
+  background: var(--navy);
+  color: white;
+}
+
+.topbar a {
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hero {
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #071b3b, #174a9a);
+  color: white;
+  text-align: center;
+}
+
+.hero span {
+  font-size: 44px;
+}
+
+.hero h1 {
+  margin: 10px 0 8px;
+}
+
+.hero p {
+  margin: 0;
+  color: #dce8ff;
+}
+
+.card {
+  margin: 16px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--white);
+  box-shadow: 0 4px 14px rgba(7, 27, 59, 0.08);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: var(--navy);
+  font-size: 20px;
+}
+
+.saved-caregiver {
+  padding: 15px;
+  border-radius: 12px;
+  background: var(--light-blue);
+  color: var(--navy);
+  line-height: 1.6;
+}
+
+.saved-caregiver strong {
+  font-size: 19px;
+}
+
+.call-button {
+  display: block;
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--green);
+  color: white;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  margin-top: 10px;
+  color: var(--navy);
+  font-weight: 700;
+}
+
+input,
+select {
+  min-height: 50px;
+  padding: 11px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  color: var(--text);
+  font: inherit;
+}
+
+input:focus,
+select:focus {
+  outline: 3px solid #9cc0ff;
+  border-color: var(--blue);
+}
+
+button {
+  min-height: 52px;
+  margin-top: 20px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--blue);
+  color: white;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+#saveStatus {
+  min-height: 22px;
+  margin: 8px 0 0;
+  color: var(--green);
+  font-weight: 700;
+  text-align: center;
+}

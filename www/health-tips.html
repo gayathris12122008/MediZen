@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daily Wellness</title>
 <style>
+  @keyframes breathe {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+      100% { transform: scale(1); }
+  }
 body { font-family: Arial; background: #f0f4f8; padding: 20px; }
 h1 { text-align: center; color: #1e3a8a; }
 .card { background: white; padding: 15px; border-radius: 8px; margin: 5px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
@@ -29,14 +34,54 @@ li {
 </style>
 </head>
 <body>
-<a href="index.html">← Back to MediZen</a>
-<p>General wellness information only. It is not a medical diagnosis.</p>
-<h1>Daily Wellness</h1>
 
+<h1>Daily Wellness</h1>
 <div class="card">
 <h3>WELLNESS WHISPER</h3>
 <p id="dailyTip">Loading...</p>
+<div style="text-align:center; margin:20px;">
+ 
 </div>
+</div>
+
+<div class="card" style="display:flex; justify-content:space-around; align-items:center;">
+
+  <!-- LEFT - Your Breathe you wanted to move here -->
+  <div style="text-align:center;">
+    <div style="font-size:50px; animation: breathe 4s infinite;">🌸</div>
+    <p><b id="breatheText">Breathe In... Breathe Out...</b></p>
+  </div>
+
+  <!-- RIGHT - Water stays here -->
+  <div style="text-align:center; border-left:2px solid #eee; padding-left:30px;">
+    <p>💧 <b>Today's Water</b></p>
+    <p id="water">0 / 8 glasses</p>
+    <button onclick="drink()" style="background:#2e7d32; color:white; border:none; padding:8px 16px; border-radius:20px;">+ Add Glass</button>
+  </div>
+
+</div>
+<script>
+let today = new Date().toDateString();
+let savedDate = localStorage.getItem('waterDate');
+let count = 0;
+
+if (savedDate !== today) {
+  count = 0;
+  localStorage.setItem('waterDate', today);
+  localStorage.setItem('waterCount', 0);
+} else {
+  count = parseInt(localStorage.getItem('waterCount')) || 0;
+}
+
+document.getElementById('water').innerText = count + " / 8 glasses";
+
+function drink(){
+  count++;
+  document.getElementById('water').innerText = count + " / 8 glasses";
+  localStorage.setItem('waterCount', count);
+  if(count==8) alert("Amazing! You completed today's goal! 🎉");
+}
+</script>
 
 <div class="card">
 <h3>Select your Health Concern</h3>
@@ -74,7 +119,6 @@ li {
 
 <div id="tipDisplay"></div>
 
-<script src="healthcare.js"></script>
-
+<script src="healthcare.js"></script><script src="translations.js"></script>
 </body>
 </html>

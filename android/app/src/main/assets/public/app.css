@@ -1,0 +1,794 @@
+
+
+
+:root {
+  --ink: #183153;
+  --muted: #69788d;
+  --blue: #244b78;
+  --blue-dark: #18385f;
+  --peach-bg: #fff0e2;
+  --peach: #f7c99e;
+  --line: #e8e4df;
+  --paper: #ffffff;
+  --page: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app-shell {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.topbar {
+  height: 78px;
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+  font-size: 23px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: var(--blue);
+  color: white;
+  font-size: 21px;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 220px;
+  padding: 32px 48px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--peach-bg);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.hero h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(36px, 5vw, 48px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.intro {
+  max-width: 440px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.hero-art {
+  position: relative;
+  flex: 0 0 210px;
+  height: 165px;
+  margin-right: 8px;
+}
+
+.sun-orbit {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #f7d2b1;
+}
+
+.calendar-art {
+  position: absolute;
+  top: 17px;
+  right: 43px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 112px;
+  height: 130px;
+  padding: 12px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 12px 28px #18315318;
+  transform: rotate(4deg);
+}
+
+.cal-head {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.cal-head i {
+  width: 7px;
+  height: 14px;
+  margin-top: -19px;
+  border-radius: 5px;
+  background: #f2bd91;
+}
+
+.cal-date {
+  color: var(--blue);
+  font-family: 'Manrope', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.cal-caption {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.heart {
+  position: absolute;
+  top: 56px;
+  right: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background: #e98c68;
+  color: white;
+  font-size: 21px;
+  box-shadow: 0 5px 16px #df74564c;
+}
+
+.spark {
+  position: absolute;
+  color: #db865f;
+}
+
+.spark-one {
+  top: 0;
+  right: 4px;
+  font-size: 23px;
+}
+
+.spark-two {
+  right: 150px;
+  bottom: -2px;
+  font-size: 17px;
+}
+
+/* Appointment form and reminders */
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.panel,
+.reminder-column {
+  min-width: 0;
+}
+
+.form-panel {
+  padding: 27px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--paper);
+  box-shadow: 0 8px 28px #18315308;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 20px;
+}
+
+.heading-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: var(--peach-bg);
+  color: var(--blue);
+  font-size: 25px;
+}
+
+.section-heading h2,
+.list-heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Manrope', sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.section-description {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+label {
+  display: block;
+  margin: 17px 0 8px;
+  color: #263e5e;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.optional {
+  color: #8b98a7;
+  font-weight: 400;
+}
+
+input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  padding: 0 13px;
+  border: 1px solid #e3ddd6;
+  border-radius: 10px;
+  outline: none;
+  background: #fffdfb;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+input:focus {
+  border-color: #7395b9;
+  box-shadow: 0 0 0 3px #244b781c;
+}
+
+input::placeholder {
+  color: #98a4b1;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 13px;
+}
+
+.sound-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #fff8f2;
+}
+
+.sound-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--peach-bg);
+  color: var(--blue);
+  font-size: 20px;
+}
+
+.sound-copy {
+  min-width: 0;
+}
+
+.sound-option strong,
+.sound-option small {
+  display: block;
+}
+
+.sound-option strong {
+  font-size: 12px;
+}
+
+.sound-option small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.preview-button {
+  flex: none;
+  margin-left: auto;
+  padding: 9px 10px;
+  border: 1px solid #cbd6e2;
+  border-radius: 9px;
+  background: white;
+  color: var(--blue-dark);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.preview-button:hover {
+  background: #f2f6fa;
+}
+
+.primary-button {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 18px;
+  padding: 12px;
+  border: 0;
+  border-radius: 11px;
+  background: var(--blue);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 14px #244b7828;
+}
+
+.primary-button:hover {
+  background: var(--blue-dark);
+}
+
+.primary-button span {
+  margin-right: 5px;
+  font-size: 19px;
+  vertical-align: -1px;
+}
+
+.form-message {
+  min-height: 18px;
+  margin: 10px 0 0;
+  color: var(--blue-dark);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Reminder list */
+
+.reminder-column {
+  padding-top: 5px;
+}
+
+.list-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 17px;
+}
+
+.list-heading .eyebrow {
+  margin-bottom: 7px;
+  font-size: 11px;
+}
+
+.list-heading h2 {
+  font-size: 25px;
+}
+
+.count-pill {
+  flex: none;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: var(--peach-bg);
+  color: var(--blue-dark);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.reminder-list {
+  display: grid;
+  gap: 12px;
+}
+
+.appointment-card {
+  position: relative;
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 5px 18px #18315308;
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.date-badge {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 53px;
+  min-height: 59px;
+  border-radius: 12px;
+  background: var(--peach-bg);
+  color: var(--blue);
+}
+
+.date-badge .month {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.date-badge .day {
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.appointment-info {
+  flex: 1;
+  min-width: 0;
+  padding: 2px 22px 0 0;
+}
+
+.appointment-info h3 {
+  margin: 0 0 5px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.appointment-info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.location {
+  display: block;
+  margin-top: 2px;
+}
+
+.delete-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 7px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #8292a3;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background: #fff0e2;
+  color: #b85b52;
+}
+
+.reminder-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 14px;
+  padding-top: 11px;
+  border-top: 1px solid #edf0f3;
+}
+
+.tag {
+  padding: 6px 9px;
+  border-radius: 20px;
+  background: #f3f6f8;
+  color: #58718a;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.tag.today {
+  background: #fff1e9;
+  color: #a85e3d;
+}
+
+.empty-state {
+  padding: 30px 20px;
+  border: 1px dashed #d7dce1;
+  border-radius: 17px;
+  background: #fff;
+  text-align: center;
+}
+
+.empty-state[hidden],
+.alert-popup[hidden] {
+  display: none;
+}
+
+.empty-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 13px;
+  border-radius: 14px;
+  background: var(--peach-bg);
+  color: var(--blue);
+  font-size: 25px;
+}
+
+.empty-state h3 {
+  margin: 0 0 7px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+}
+
+.empty-state p {
+  max-width: 265px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.comfort-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 14px 15px;
+  border-radius: 13px;
+  background: #fff4ed;
+  color: #855d4d;
+}
+
+.comfort-note > span {
+  color: #e78365;
+  font-size: 17px;
+}
+
+.comfort-note p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.comfort-note strong {
+  color: #724c3e;
+}
+
+footer {
+  padding: 28px 0 22px;
+  color: #91a0ae;
+  font-size: 12px;
+  text-align: center;
+}
+
+footer span {
+  padding: 0 5px;
+  color: #c1ceca;
+}
+
+/* Reminder alert */
+
+.alert-popup {
+  position: fixed;
+  z-index: 10;
+  right: 20px;
+  bottom: 20px;
+  max-width: min(360px, calc(100vw - 40px));
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--blue-dark);
+  color: white;
+  box-shadow: 0 10px 35px #18315330;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.alert-popup strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding: 0 20px;
+  }
+
+  .topbar {
+    height: 70px;
+  }
+
+  .hero {
+    min-height: 190px;
+    padding: 28px;
+  }
+
+  .hero-art {
+    position: absolute;
+    right: -38px;
+    bottom: -15px;
+    opacity: 0.55;
+    transform: scale(0.75);
+    transform-origin: bottom right;
+  }
+
+  .hero-copy {
+    max-width: 85%;
+  }
+
+  .content-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    margin-top: 22px;
+  }
+
+  .form-panel {
+    padding: 23px;
+  }
+
+  .reminder-column {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  body {
+    font-size: 15px;
+  }
+
+  .app-shell {
+    padding: 0 14px;
+  }
+
+  .topbar {
+    height: 64px;
+  }
+
+  .brand {
+    font-size: 21px;
+  }
+
+  .hero {
+    min-height: 175px;
+    padding: 25px 20px;
+    align-items: flex-start;
+  }
+
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .intro {
+    max-width: 240px;
+    font-size: 14px;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+  }
+
+  .hero-art {
+    right: -70px;
+    bottom: -65px;
+    opacity: 0.35;
+    transform: scale(0.65);
+  }
+
+  .form-panel {
+    padding: 18px;
+  }
+
+  .field-row {
+    gap: 9px;
+  }
+
+  .sound-option {
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+
+  .sound-copy {
+    flex: 1;
+  }
+
+  .preview-button {
+    margin-left: 45px;
+  }
+
+  .appointment-card {
+    padding: 14px;
+  }
+
+  .list-heading h2 {
+    font-size: 23px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Match the font used in index.html */
+body,
+body button,
+body input,
+body select,
+body textarea,
+body h1,
+body h2,
+body h3,
+body p,
+body label,
+body strong,
+body small,
+body a,
+body span {
+  font-family: Arial, "Noto Sans Tamil", sans-serif !important;
+}

@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071b3b">
+  <title>MediZen | Settings</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">✚ MediZen</a>
+    <a class="back-link" href="index.html">← Home</a>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="hero-icon">⚙️</span>
+      <h1>Settings & Management</h1>
+      <p>Manage your health information and customize MediZen.</p>
+    </section>
+
+    <nav class="accessibility-bar" aria-label="Accessibility controls">
+      <button type="button" id="textSizeButton">A+ Text Size</button>
+      <button type="button" id="readButton">🔊 Read Aloud</button>
+      <button type="button" id="stopButton" hidden>⏹ Stop</button>
+    </nav>
+
+    <section class="settings-section">
+      <h2>Health & Care Settings</h2>
+      <p class="section-description">
+        Select a section to edit its details or open its dedicated page.
+      </p>
+
+      <div class="settings-grid">
+        <article class="settings-card">
+          <div class="card-icon">🤝</div>
+          <h3>Caregiver & Caretaker</h3>
+          <p>Edit the adult's and caregiver's contact information.</p>
+          <a class="open-link" href="caregiver.html">Open caregiver page →</a>
+          <button type="button" class="secondary-button"
+            data-edit="caregiver">Edit details here</button>
+        </article>
+
+        <article class="settings-card">
+          <div class="card-icon">💊</div>
+          <h3>Medicine Details</h3>
+          <p>Manage medicine names, dosage and schedule information.</p>
+          <a class="open-link" href="med.html">Open medicines page →</a>
+          <button type="button" class="secondary-button"
+            data-edit="medicine">Edit details here</button>
+        </article>
+
+        <article class="settings-card">
+          <div class="card-icon">📅</div>
+          <h3>Appointments</h3>
+          <p>Save appointment dates, doctors and visit details.</p>
+          <a class="open-link" href="appointments.html">Open appointments page →</a>
+          <button type="button" class="secondary-button"
+            data-edit="appointment">Edit details here</button>
+        </article>
+
+        <article class="settings-card">
+          <div class="card-icon">🏥</div>
+          <h3>Hospital Details</h3>
+          <p>Save hospital names, addresses and contact numbers.</p>
+          <a class="open-link" href="hospitals.html">Open hospital page →</a>
+          <button type="button" class="secondary-button"
+            data-edit="hospital">Edit details here</button>
+        </article>
+
+        <article class="settings-card">
+          <div class="card-icon">🌿</div>
+          <h3>Health Tips</h3>
+          <p>Manage health tips displayed in your app.</p>
+          <a class="open-link" href="health-tips.html">Open health tips page →</a>
+          <button type="button" class="secondary-button"
+            data-edit="tips">Edit details here</button>
+        </article>
+      </div>
+    </section>
+
+   
+    <p class="privacy-note">
+      Your saved settings are stored locally in this browser or app on this
+      device. They are not automatically synced to other devices.
+    </p>
+
+    <!-- Creator Panel: at the bottom of Settings -->
+    <section class="creator-section" aria-labelledby="creatorTitle">
+      <div class="creator-header">
+        <div class="creator-icon" aria-hidden="true">✦</div>
+        <div>
+          <p class="eyebrow">OUR TEAM</p>
+          <h2 id="creatorTitle">Meet the Creators</h2>
+          <p>Created with care by Team MediZen.</p>
+        </div>
+      </div
+      <div class="team-preview">
+        <h3>Team MediZen</h3>
+        <p><strong>App Name:</strong> MediZen</p>
+
+        <h3>Team Members</h3>
+        <p><ul type = "square"><li>Gayathri S</li>
+<li></l>Dhanashree D
+Dharshini Chowdhary R
+Likitha B</p>
+
+        <p><strong>College:</strong> From RMD Engineering College</p>
+        <p><strong>Hackathon:</strong> Sathyabama IST Dexathon '26</p>
+        <p><strong>Date:</strong> 20/10/2026</p>
+      </div>
+    </section>
+  </main>
+```
+
+  <footer>
+    <p>© 2026 MediZen</p>
+    <p>Care made clearer. One step at a time.</p>
+  </footer>
+
+  <script src="settings.js"></script><script src="translations.js"></script>
+</body>
+</html>

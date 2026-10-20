@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071b3b">
+  <title>MediZen | Nearby Hospitals</title>
+
+  <link rel="stylesheet" href="hospital.css">
+
+  <!-- Leaflet map styles -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  >
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">✚ MediZen</a>
+    <a class="back-link" href="index.html">← Home</a>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-icon" aria-hidden="true">🏥</div>
+      <h1>Nearby Hospitals</h1>
+      <p>Find healthcare facilities near you on the map.</p>
+    </section>
+
+    <section class="search-panel" aria-label="Hospital search">
+      <h2>Find a hospital</h2>
+
+      <p class="help-text">
+        Allow location access to search around your current position,
+        or enter a town or area below.
+      </p>
+
+      <button id="locateButton" class="primary-button" type="button">
+        📍 Use My Current Location
+      </button>
+
+      <form id="searchForm">
+        <label for="locationInput">Search by town or area</label>
+
+        <div class="search-row">
+          <input
+            id="locationInput"
+            type="search"
+            placeholder="Example: Chennai, Tamil Nadu"
+            autocomplete="off"
+          >
+          <button class="secondary-button" type="submit">
+            Search
+          </button>
+        </div>
+      </form>
+
+      <div class="filter-row">
+        <label for="radiusSelect">Search radius</label>
+        <select id="radiusSelect">
+          <option value="2000">2 km</option>
+          <option value="5000" selected>5 km</option>
+          <option value="10000">10 km</option>
+        </select>
+
+        <button id="refreshButton" class="secondary-button" type="button">
+          Search Again
+        </button>
+      </div>
+
+      <p id="statusMessage" class="status" role="status" aria-live="polite">
+        Choose your current location or search for an area to begin.
+      </p>
+    </section>
+
+    <section class="map-section">
+      <h2>Hospital Map</h2>
+      <p class="help-text">
+        Select a marker to view a hospital's name and available details.
+      </p>
+      <div id="map" aria-label="Interactive map showing nearby hospitals"></div>
+      <p class="map-credit">
+        Map data © OpenStreetMap contributors
+      </p>
+    </section>
+
+    <section class="results-section">
+      <div class="results-heading">
+        <div>
+          <h2>Hospitals near you</h2>
+          <p id="resultCount" class="help-text">No search performed yet.</p>
+        </div>
+      </div>
+
+      <div id="hospitalList" class="hospital-list">
+        <div class="empty-state">
+          <span aria-hidden="true">🗺️</span>
+          <p>Your nearby hospitals will appear here after you search.</p>
+        </div>
+      </div>
+    </section>
+
+    <p class="disclaimer">
+      Hospital information comes from OpenStreetMap and may be incomplete
+      or outdated. Confirm contact details and availability before travelling.
+      In an emergency in India, call 112.
+    </p>
+  </main>
+
+  <footer>
+    <p>© 2026 MediZen</p>
+    <p>Care made clearer. One step at a time.</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="hospital.js"></script><script src="translations.js"></script>
+</body>
+</html>

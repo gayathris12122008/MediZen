@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediZen | Caregiver Settings</title>
+
+  <link rel="stylesheet" href="caregiver.css">
+</head>
+
+<body>
+  <main class="caregiver-app">
+    <header class="topbar">
+      <a href="index.html">← MediZen</a>
+      <strong>Profile & Caregiver</strong>
+    </header>
+
+    <section class="hero">
+      <span>🤝</span>
+      <h1>Profile & Caregiver Settings</h1>
+      <p>Save the details once on this device.</p>
+    </section>
+
+    <section class="card">
+      <h2>Saved Caregiver</h2>
+
+      <div id="savedCaregiver" class="saved-caregiver">
+        No caregiver details saved yet.
+      </div>
+
+      <a id="callCaregiver" class="call-button" href="#" hidden>
+        ☎ Call Caregiver
+      </a>
+    </section>
+
+    <section class="card">
+      <form id="profileForm">
+        <h2>Adult Details</h2>
+
+        <label for="adultName">Adult's name</label>
+        <input id="adultName" type="text"
+               placeholder="Enter adult's name" required>
+
+        <label for="adultPhone">Adult's phone number</label>
+        <input id="adultPhone" type="tel" inputmode="tel"
+               placeholder="Enter phone number" required>
+
+        <h2>Caretaker Details</h2>
+
+        <label for="caregiverName">Caretaker's name</label>
+        <input id="caregiverName" type="text"
+               placeholder="Enter caretaker's name" required>
+
+        <label for="caregiverPhone">Caretaker's phone number</label>
+        <input id="caregiverPhone" type="tel" inputmode="tel"
+               placeholder="Enter phone number" required>
+
+        <label for="relationship">Relationship</label>
+        <select id="relationship" required>
+          <option value="">Select relationship</option>
+          <option>Son</option>
+          <option>Daughter</option>
+          <option>Spouse</option>
+          <option>Parent</option>
+          <option>Relative</option>
+          <option>Friend</option>
+          <option>Other</option>
+        </select>
+
+        <button type="submit">Save Details</button>
+        <p id="saveStatus" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="caregiver.js"></script><script src="translations.js"></script>
+
+</body>
+</html>

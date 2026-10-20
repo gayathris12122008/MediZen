@@ -1,0 +1,125 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Appointment | MediZen</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="MediZen home">
+        <span class="brand-mark">✚</span>
+        <span>MediZen</span>
+      </a>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">MEDIZEN</p>
+        <h1 id="page-title">Appointment</h1>
+        <p class="intro">Keep your appointments organised in one simple place.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun-orbit"></div>
+        <div class="calendar-art">
+          <div class="cal-head"><i></i><i></i></div>
+          <div class="cal-date">✓</div>
+          <div class="cal-caption">YOUR CARE</div>
+        </div>
+        <span class="heart">♥</span>
+        <span class="spark spark-one">✦</span>
+        <span class="spark spark-two">✦</span>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <section class="panel form-panel" aria-labelledby="form-title">
+        <div class="section-heading">
+          <span class="heading-icon" aria-hidden="true">＋</span>
+          <div>
+            <h2 id="form-title">Add an appointment</h2>
+            <p class="section-description">Enter your visit details below.</p>
+          </div>
+        </div>
+
+        <form id="appointment-form">
+          <label for="doctor">Doctor or clinic</label>
+          <input id="doctor" name="doctor" type="text"
+                 placeholder="e.g. Dr. Maya Patel" required>
+
+          <div class="field-row">
+            <div>
+              <label for="date">Date</label>
+              <input id="date" name="date" type="date" required>
+            </div>
+            <div>
+              <label for="time">Time</label>
+              <input id="time" name="time" type="time" required>
+            </div>
+          </div>
+
+          <label for="location">
+            Location <span class="optional">(optional)</span>
+          </label>
+          <input id="location" name="location" type="text"
+                 placeholder="Clinic name or address">
+
+          <div class="sound-option">
+            <span class="sound-icon" aria-hidden="true">♫</span>
+            <div class="sound-copy">
+              <strong>Appointment reminder sound</strong>
+              <small>Preview the reminder chime</small>
+            </div>
+            <button id="preview-sound" class="preview-button"
+                    type="button">▶ Preview</button>
+          </div>
+
+          <button class="primary-button" type="submit">
+            <span aria-hidden="true">＋</span> Save appointment
+          </button>
+          <p id="form-message" class="form-message"
+             role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="reminder-column" aria-labelledby="reminders-title">
+        <div class="list-heading">
+          <div>
+            <p class="eyebrow">YOUR SCHEDULE</p>
+            <h2 id="reminders-title">Reminders</h2>
+          </div>
+          <span id="appointment-count" class="count-pill">0 saved</span>
+        </div>
+
+        <div id="reminder-list" class="reminder-list"></div>
+
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon" aria-hidden="true">▦</div>
+          <h3>No appointments yet</h3>
+          <p>Your saved appointments and reminders will appear here.</p>
+        </div>
+
+        <div class="comfort-note">
+          <span aria-hidden="true">✦</span>
+          <p>
+            <strong>A little peace of mind.</strong><br>
+            Your appointments are saved on this device in this browser.
+          </p>
+        </div>
+      </section>
+    </section>
+
+    <footer>Made for simpler care <span>•</span> Take one step at a time</footer>
+  </main>
+
+  <div id="alert-popup" class="alert-popup"
+       role="alert" aria-live="assertive" hidden></div>
+
+  <script src="app.js"></script><script src="translations.js"></script>
+
+</body>
+</html>
